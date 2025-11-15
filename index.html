@@ -3,341 +3,267 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yant底包 - 高品质系统底包</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>五彩祝福卡片</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            color: #fff;
-            min-height: 100vh;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
-            padding: 20px;
+            align-items: center;
+            overflow: hidden;
             position: relative;
-            overflow-x: hidden;
         }
         
         .container {
-            max-width: 800px;
-            width: 100%;
             text-align: center;
-            z-index: 2;
-        }
-        
-        .logo {
-            width: 120px;
-            height: 120px;
-            background: linear-gradient(145deg, #00dbde, #fc00ff);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-            box-shadow: 0 8px 30px rgba(0, 219, 222, 0.3);
-            animation: pulse 3s infinite ease-in-out;
-        }
-        
-        .logo i {
-            font-size: 50px;
-            color: white;
+            z-index: 10;
         }
         
         h1 {
-            font-size: 3.5rem;
-            margin-bottom: 15px;
-            background: linear-gradient(to right, #00dbde, #fc00ff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            font-weight: 800;
-            letter-spacing: 1px;
+            color: #6a5acd;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
         }
         
-        .subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            color: #a0a0d0;
-            font-weight: 300;
-        }
-        
-        .description {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 30px;
-            margin: 30px 0;
-            line-height: 1.6;
-            font-size: 1.1rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-        
-        .features {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            margin: 40px 0;
-        }
-        
-        .feature {
-            flex: 1;
-            min-width: 200px;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 20px;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .feature:hover {
-            transform: translateY(-5px);
-        }
-        
-        .feature i {
-            font-size: 2rem;
-            margin-bottom: 15px;
-            color: #00dbde;
-        }
-        
-        .download-btn {
-            display: inline-block;
-            background: linear-gradient(to right, #00dbde, #fc00ff);
-            color: white;
-            padding: 18px 45px;
+        .btn {
+            padding: 15px 40px;
             font-size: 1.2rem;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 50px;
-            margin: 20px 0;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(0, 219, 222, 0.4);
+            background: linear-gradient(45deg, #FF6B6B, #6B6BFF);
+            color: white;
             border: none;
+            border-radius: 50px;
             cursor: pointer;
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         
-        .download-btn:hover {
+        .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(252, 0, 255, 0.5);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
         
-        .download-btn:active {
+        .btn:active {
             transform: translateY(1px);
         }
         
-        .download-btn::before {
-            content: '';
+        .message {
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: rgba(255, 255, 255, 0.1);
-            transform: rotate(45deg);
-            transition: all 0.5s ease;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            font-weight: bold;
+            text-align: center;
+            max-width: 200px;
+            animation: floatIn 0.5s ease-out forwards;
+            z-index: 5;
+        }
+        
+        @keyframes floatIn {
+            from {
+                opacity: 0;
+                transform: scale(0.5) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+        
+        .final-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            font-size: 4rem;
+            color: #FF6B6B;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            z-index: 100;
+            animation: finalMessage 2s ease-out forwards;
             opacity: 0;
         }
         
-        .download-btn:hover::before {
-            opacity: 1;
-            animation: shine 1.5s infinite;
+        @keyframes finalMessage {
+            0% {
+                transform: translate(-50%, -50%) scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
         }
         
-        .stats {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin: 40px 0;
-            flex-wrap: wrap;
-        }
-        
-        .stat {
-            text-align: center;
-        }
-        
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            background: linear-gradient(to right, #00dbde, #fc00ff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        
-        .stat-label {
-            font-size: 1rem;
-            color: #a0a0d0;
-        }
-        
-        footer {
-            margin-top: 50px;
-            color: #777;
-            font-size: 0.9rem;
-        }
-        
-        .particles {
-            position: absolute;
+        .clear-screen {
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 1;
-            overflow: hidden;
-        }
-        
-        .particle {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        
-        @keyframes shine {
-            0% { left: -50%; }
-            100% { left: 100%; }
-        }
-        
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-            
-            .subtitle {
-                font-size: 1.2rem;
-            }
-            
-            .description {
-                padding: 20px;
-                font-size: 1rem;
-            }
-            
-            .features {
-                flex-direction: column;
-            }
-            
-            .stats {
-                flex-direction: column;
-                gap: 15px;
-            }
+            background: white;
+            z-index: 50;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 1.5s ease-in-out;
         }
     </style>
 </head>
 <body>
-    <div class="particles" id="particles"></div>
-    
     <div class="container">
-        <div class="logo">
-            <i class="fas fa-cube"></i>
-        </div>
-        
-        <h1>Yant底包</h1>
-        <div class="subtitle">性价比 · 防封 · 简洁 · 公益</div>
-        
-        <div class="description">
-            Yant底包是24年8月中旬开发的项目 手撕签名效验 自动化杀en 加密客户端文件 切换客户端等等 授权联系3770808650（公益客户端或个人客户端不用授权 直接前往下载）</div>
-        
-        <div class="features">
-            <div class="feature">
-                <i class="fas fa-bolt"></i>
-                <h3>加密客户端</h3>
-                <p>保护你的客户端文件不被二改和窃取 安全性中等</p>
-            </div>
-            <div class="feature">
-                <i class="fas fa-shield-alt"></i>
-                <h3>卡密验证</h3>
-                <p>授权用户可以使用卡密验证功能 后台有配置卡密系统 可给客户端添加卡密</p>
-            </div>
-            <div class="feature">
-                <i class="fas fa-puzzle-piece"></i>
-                <h3>手撕签效</h3>
-                <p>手撕签名效验 稳定防封 不必担心封号问题</p>
-            </div>
-        </div>
-        
-        <div class="stats">
-            <div class="stat">
-                <div class="stat-number">140-150MB</div>
-                <div class="stat-label">精简大小</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">100%</div>
-                <div class="stat-label">支持Xposed模块</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">28.88CNY</div>
-                <div class="stat-label">性价比授权</div>
-            </div>
-        </div>
-        
-        <a href="https://bbs.yuchen.icu/index.php?resources/yant.2886/" class="download-btn">
-            <i class="fas fa-download"></i> 前往下载
-        </a>
-        
-        <footer>
-            <p>© 2025 Yant底包</p>
-        </footer>
+        <h1>温馨祝福卡片</h1>
+        <button class="btn" id="surpriseBtn">查看惊喜</button>
     </div>
-
+    
+    <div class="clear-screen" id="clearScreen"></div>
+    
     <script>
-        // 创建背景粒子效果
         document.addEventListener('DOMContentLoaded', function() {
-            const particlesContainer = document.getElementById('particles');
-            const particleCount = 50;
+            const surpriseBtn = document.getElementById('surpriseBtn');
+            const clearScreen = document.getElementById('clearScreen');
+            const body = document.body;
             
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
+            // 祝福语数组
+            const messages = [
+                "今天还好吗？",
+                "愿你每天都开心",
+                "一切都会变好的",
+                "你是最棒的",
+                "记得照顾好自己",
+                "今天也要加油哦",
+                "世界因你而美丽",
+                "微笑是最好的礼物",
+                "愿你被温柔以待",
+                "今天天气真好",
+                "记得按时吃饭",
+                "要开心哦",
+                "你值得拥有最好的",
+                "愿幸运常伴你左右",
+                "生活充满阳光",
+                "愿你心想事成",
+                "记得多喝水",
+                "你是独一无二的",
+                "今天心情如何？",
+                "愿你每天都有好心情"
+            ];
+            
+            // 颜色数组
+            const colors = [
+                "#FF6B6B", "#6B6BFF", "#6BFF6B", "#FFFF6B", 
+                "#FF6BFF", "#6BFFFF", "#FFA06B", "#A06BFF",
+                "#6BFFA0", "#FFD700", "#FF69B4", "#00CED1",
+                "#FF6347", "#7B68EE", "#32CD32", "#FF4500"
+            ];
+            
+            let messageCount = 0;
+            const maxMessages = 25;
+            
+            surpriseBtn.addEventListener('click', function() {
+                // 禁用按钮，防止多次点击
+                surpriseBtn.disabled = true;
+                surpriseBtn.textContent = "祝福正在飞来...";
                 
-                const size = Math.random() * 10 + 2;
-                const posX = Math.random() * 100;
-                const posY = Math.random() * 100;
-                const delay = Math.random() * 5;
-                const duration = Math.random() * 10 + 10;
+                // 创建消息弹窗
+                const interval = setInterval(() => {
+                    if (messageCount < maxMessages) {
+                        createMessage();
+                        messageCount++;
+                    } else {
+                        clearInterval(interval);
+                        showFinalMessage();
+                    }
+                }, 150);
+            });
+            
+            function createMessage() {
+                const message = document.createElement('div');
+                message.className = 'message';
+                message.textContent = messages[Math.floor(Math.random() * messages.length)];
                 
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                particle.style.left = `${posX}vw`;
-                particle.style.top = `${posY}vh`;
-                particle.style.animation = `
-                    float ${duration}s ease-in-out ${delay}s infinite alternate,
-                    opacityChange ${duration/2}s ease-in-out ${delay}s infinite alternate
-                `;
+                // 随机位置
+                const posX = Math.random() * (window.innerWidth - 200);
+                const posY = Math.random() * (window.innerHeight - 100);
                 
-                particlesContainer.appendChild(particle);
+                // 随机颜色
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                
+                // 随机大小
+                const fontSize = Math.floor(Math.random() * 16) + 16;
+                
+                // 设置样式
+                message.style.left = `${posX}px`;
+                message.style.top = `${posY}px`;
+                message.style.backgroundColor = color;
+                message.style.fontSize = `${fontSize}px`;
+                message.style.color = getContrastColor(color);
+                
+                // 添加到页面
+                body.appendChild(message);
+                
+                // 5秒后移除消息
+                setTimeout(() => {
+                    if (message.parentNode) {
+                        message.parentNode.removeChild(message);
+                    }
+                }, 5000);
             }
             
-            // 添加浮动动画样式
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes float {
-                    0% { transform: translate(0, 0) rotate(0deg); }
-                    50% { transform: translate(${Math.random()*20}px, ${Math.random()*20}px) rotate(180deg); }
-                    100% { transform: translate(${Math.random()*40}px, ${Math.random()*40}px) rotate(360deg); }
-                }
+            function showFinalMessage() {
+                // 创建最终消息
+                const finalMessage = document.createElement('div');
+                finalMessage.className = 'final-message';
+                finalMessage.textContent = '我想你了';
                 
-                @keyframes opacityChange {
-                    0% { opacity: 0.2; }
-                    50% { opacity: 0.5; }
-                    100% { opacity: 0.3; }
-                }
-            `;
-            document.head.appendChild(style);
+                body.appendChild(finalMessage);
+                
+                // 2秒后清屏
+                setTimeout(() => {
+                    clearScreen.style.opacity = '1';
+                    
+                    // 3秒后重置页面
+                    setTimeout(() => {
+                        body.removeChild(finalMessage);
+                        clearScreen.style.opacity = '0';
+                        surpriseBtn.disabled = false;
+                        surpriseBtn.textContent = "再次查看惊喜";
+                        messageCount = 0;
+                        
+                        // 移除所有剩余的消息
+                        const remainingMessages = document.querySelectorAll('.message');
+                        remainingMessages.forEach(msg => {
+                            if (msg.parentNode) {
+                                msg.parentNode.removeChild(msg);
+                            }
+                        });
+                    }, 3000);
+                }, 2000);
+            }
+            
+            // 辅助函数：根据背景色确定文字颜色
+            function getContrastColor(hexColor) {
+                // 将十六进制颜色转换为RGB
+                const r = parseInt(hexColor.substr(1, 2), 16);
+                const g = parseInt(hexColor.substr(3, 2), 16);
+                const b = parseInt(hexColor.substr(5, 2), 16);
+                
+                // 计算亮度
+                const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+                
+                // 根据亮度返回黑色或白色
+                return brightness > 128 ? '#000000' : '#FFFFFF';
+            }
         });
     </script>
 </body>
